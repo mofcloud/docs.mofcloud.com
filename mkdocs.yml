@@ -1,10 +1,11 @@
-site_name: Mof Documentation
+site_name: MofCloud Docs
 site_url: https://mofcloud.com/docs
 repo_name: mofcloud/docs-en
 repo_url: https://github.com/mofcloud/docs-en
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
   logo: assets/logo.svg
   favicon: assets/favicon.ico

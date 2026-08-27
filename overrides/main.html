@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{# 覆盖 Material 默认标题:分隔符 - 改成 |,与营销站/工具站/博客保持一致 #}
+{% block htmltitle %}
+  {% if page.meta and page.meta.title %}
+    <title>{{ page.meta.title }} | {{ config.site_name }}</title>
+  {% elif page.title and not page.is_homepage %}
+    <title>{{ page.title | striptags }} | {{ config.site_name }}</title>
+  {% else %}
+    <title>{{ config.site_name }}</title>
+  {% endif %}
+{% endblock %}
