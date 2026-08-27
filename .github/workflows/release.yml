@@ -23,8 +23,10 @@ jobs:
         env:
           REPOSITORY: docs-en
           IMAGE_TAG: ${{github.event.release.tag_name}}
+          SWR_USERNAME: ${{ secrets.SWR_USERNAME }}
+          SWR_PASSWORD: ${{ secrets.SWR_PASSWORD }}
         run: |
-          docker login -u ap-southeast-1@JE9QOCCH2LGKIUVS3JUG -p df18aecc74630c437780924858ab3ae4fd92f13829d45beca3af9ef3234a4352 swr.ap-southeast-1.myhuaweicloud.com
+          echo "$SWR_PASSWORD" | docker login -u "$SWR_USERNAME" --password-stdin swr.ap-southeast-1.myhuaweicloud.com
           docker build -t swr.ap-southeast-1.myhuaweicloud.com/mofcloud/$REPOSITORY:$IMAGE_TAG .
           docker push swr.ap-southeast-1.myhuaweicloud.com/mofcloud/$REPOSITORY:$IMAGE_TAG
 
